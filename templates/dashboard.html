@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - AMS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h2>AMS Dashboard</h2>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/mark_attendance">Mark Attendance</a>
+            <a href="/view_report">View Report</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h3>Welcome, {{ session['user'] }}</h3>
+        <div class="stats">
+            <div class="stat-box">
+                <h4>Total Students</h4>
+                <p>{{ total }}</p>
+            </div>
+            <div class="stat-box">
+                <h4>Present Today ({{ today }})</h4>
+                <p>{{ present }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

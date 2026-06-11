@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Report - AMS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <h2>AMS Dashboard</h2>
+        <div class="nav-links">
+            <a href="/dashboard">Dashboard</a>
+            <a href="/mark_attendance">Mark Attendance</a>
+            <a href="/view_report">View Report</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h3>Attendance Report</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Department</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td>{{ record[1] }}</td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+                <td>{{ record[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
