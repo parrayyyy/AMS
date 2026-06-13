@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS attendance (
 
 INSERT IGNORE INTO users(username, password) VALUES ('T1', 'T123');
 
-INSERT IGNORE INTO student(name, roll_no, dept) VALUES 
+INSERT IGNORE -INTO student(name, roll_no, dept) VALUES 
 ('Pari Manhas', 'CO25301', 'CSE'),
 ('Palak', 'CO25302', 'CSE'),
 ('Priya', 'CO25303', 'CIVIL');
