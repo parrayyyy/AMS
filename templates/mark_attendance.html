@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>AMS-Attendance</title>
     <meta charset="UTF-8">
     <title>Mark Attendance - AMS</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -17,9 +18,9 @@
     </div>
 
     <div class="content">
-        <h3>Mark Attendance</h3>
+        <h3 style="text-align: center; color: #641d40;">Mark Attendance</h3>
         <form method="POST" action="/mark_attendance">
-            <label for="date">Date</label>
+            <label for="date" style="color: #641d40;">Date</label>
             <input type="date" id="date" name="date" value="{{ today }}" required>
 
             <table>
