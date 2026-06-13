@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #FFF3B0;
+    background-color: #fff8cf;
 }
 
 .login-container {
@@ -20,7 +20,7 @@ body {
 }
 
 .login-container h2 {
-    color: #471605;
+    color: #213201;
     margin-bottom: 10px;
 }
 
@@ -126,7 +126,7 @@ body {
 }
 
 table {
-    width: 99%;
+    width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     background: #fff8de;
@@ -140,7 +140,7 @@ table th, table td {
 }
 
 table th {
-    background-color: #9E2A2B;
+    background-color: #7E2A53;
     color: white;
 }
 
@@ -164,12 +164,13 @@ form input[type="date"] {
 form button[type="submit"] {
     margin-top: 20px;
     padding: 10px 30px;
-    background-color: #27ae60;
-    color: white;
+    background-color: #056f31;
+    color: whitesmoke;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
 }
 
 form button[type="submit"]:hover {

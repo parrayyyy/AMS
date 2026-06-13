@@ -68,21 +68,39 @@ def mark_attendance():
     today = date.today()
     return render_template('mark_attendance.html', students=students, today=today)
 
-@app.route('/view_report')
+@app.route('/view_report', methods=['GET'])
 def view_report():
     if 'user' not in session:
         return redirect(url_for('login'))
+    
+    selected_date = request.args.get('date')
+    
     db = get_db()
     cursor = db.cursor()
-    cursor.execute("""
-        SELECT s.name, s.roll_no, s.dept, a.date, a.status
-        FROM attendance a
-        JOIN student s ON a.student_id = s.student_id
-        ORDER BY a.date DESC
-    """)
+    
+    if selected_date:
+        cursor.execute("""
+            SELECT s.name, s.roll_no, s.dept, a.date, a.status
+            FROM attendance a
+            JOIN student s ON a.student_id = s.student_id
+            WHERE a.date = %s
+            ORDER BY s.roll_no
+        """, (selected_date,))
+    else:
+        cursor.execute("""
+            SELECT s.name, s.roll_no, s.dept, a.date, a.status
+            FROM attendance a
+            JOIN student s ON a.student_id = s.student_id
+            ORDER BY a.date DESC
+        """)
+    
     records = cursor.fetchall()
+    
+    cursor.execute("SELECT DISTINCT date FROM attendance ORDER BY date DESC")
+    available_dates = cursor.fetchall()
+    
     db.close()
-    return render_template('view_report.html', records=records)
+    return render_template('view_report.html', records=records, available_dates=available_dates, selected_date=selected_date)
 
 @app.route('/logout')
 def logout():

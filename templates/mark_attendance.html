@@ -18,7 +18,7 @@
     </div>
 
     <div class="content">
-        <h3 style="text-align: center; color: #641d40;">Mark Attendance</h3>
+        <h3 style="text-align: center; color: #641d40; font-size: 23px;">Mark Attendance</h3>
         <form method="POST" action="/mark_attendance">
             <label for="date" style="color: #641d40;">Date</label>
             <input type="date" id="date" name="date" value="{{ today }}" required>
@@ -42,7 +42,7 @@
                 {% endfor %}
             </table>
 
-            <button type="submit">Submit Attendance</button>
+            <button type="submit" style="">Submit Attendance</button>
         </form>
     </div>
 </body>
